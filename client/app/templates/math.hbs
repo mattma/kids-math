@@ -9,8 +9,15 @@
       <span>{{field.field2}}</span>
       <span class="operater">=</span>
       <span>
-        {{input type="number" value=attempt}}
+        {{input type="number" value=field.attempt}}
       </span>
+      <div {{bind-attr class="field.reason::hide"}}>
+        {{#if field.reason}}
+          {{field.reason}}
+        {{else}}
+          Pass!
+        {{/if}}
+      </div>
     </li>
   {{/each}}
   </ul>

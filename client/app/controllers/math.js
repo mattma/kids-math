@@ -1,11 +1,20 @@
 import Ember from 'ember';
 
-var MathController = Ember.ArrayController.extend({
-  answers:  Ember.computed.mapBy('model', 'answer'),
+var MathController = Ember.ObjectController.extend({
   actions: {
     calculate: function() {
-      var answers = this.get('answers');
-      console.log('answers: ', answers);
+      this.get('model').forEach((field) => {
+        console.log('field.answer: ', field.answer);
+        var attempt = parseInt(field.attempt);
+        console.log('attempt: ', attempt);
+        if(field.answer !== attempt) {
+          console.log('matt');
+          var msg = "Wrong answer, Aaron! Think again!";
+          field.set('reason', msg);
+        } else {
+          field.set('reason', null);
+        }
+      });
     }
   }
 });
