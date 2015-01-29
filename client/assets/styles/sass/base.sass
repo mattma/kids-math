@@ -24,7 +24,7 @@ body
   background: #f4f4f4
   min-height: 100%
 
-  &>div
+  & > div
     min-height: 100%
     position: relative
 
@@ -48,8 +48,50 @@ header, nav, main
   header.open, header.open ~ main
     transform: translate(0, 0)
 
+.math
+  ul
+    width: 100%
+    height: 100%
+    margin: 20px 0
+    overflow: hidden
+  li
+    width: 35%
+    height: 40px
+    margin-bottom: 10px
 
+    & > *
+      float: left
 
+    span
+      display: block
+      width: auto
+      height: 30px
+      margin-right: 10px
+      font-size: 2em
+      color: rgb(51, 51, 51)
+      font-weight: 700
+      line-height: 30px
+
+    input
+      width: 50px
+      height: 30px
+      margin-top: 1px
+      padding: 3px 5px
+      font-size: 1em
+      font-weight: 700
+      line-height: 24px
+      color: #0000ff
+      text-align: center
+
+    .operator
+      color: rgb(151, 151, 151)
+
+.header
+  height: 50px
+  & > *
+    width: auto
+    height: 100%
+    float: left
 //  ======================
 //  = OPERA STYLES ONLY  =
 //  ======================
