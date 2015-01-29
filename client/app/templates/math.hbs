@@ -2,25 +2,34 @@
 
 <section class='math'>
   <ul>
-  {{#each field in this.model}}
-    <li {{bind-attr id="field.id"}}>
-      <span>{{field.field1}}</span>
-      <span class="operater">+</span>
-      <span>{{field.field2}}</span>
-      <span class="operater">=</span>
+    {{#each field in this.model.questions}}
+      <li {{bind-attr id="field.id"}}>
+        <span>{{field.field1}}</span>
+        <span class="operater">+</span>
+        <span>{{field.field2}}</span>
+        <span class="operater">=</span>
       <span>
         {{input type="number" value=field.attempt}}
       </span>
-      <div {{bind-attr class="field.reason::hide"}}>
-        {{#if field.reason}}
-          {{field.reason}}
-        {{else}}
-          Pass!
-        {{/if}}
-      </div>
-    </li>
-  {{/each}}
+
+        <div {{bind-attr class="field.reason::hide"}}>
+          {{#if field.reason}}
+            {{field.reason}}
+          {{else}}
+            Pass!
+          {{/if}}
+        </div>
+      </li>
+    {{/each}}
   </ul>
+  <div class="statistic">
+    {{#if total}}
+      <p>You had {{total}}  wrong answers.</p>
+    {{else}}
+      <p>You got everything right. </p>
+    {{/if}}
+    <p>Percentage: {{percentage}}</p>
+  </div>
   <div>
     <button {{action "calculate"}}>Submit</button>
   </div>

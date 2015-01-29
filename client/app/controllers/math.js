@@ -1,20 +1,34 @@
 import Ember from 'ember';
 
 var MathController = Ember.ObjectController.extend({
+  questions: Ember.computed.alias('model.questions'),
   actions: {
     calculate: function() {
-      this.get('model').forEach((field) => {
-        console.log('field.answer: ', field.answer);
+      var counter = 0;
+      var questions = this.get('questions');
+      questions.forEach((field) => {
         var attempt = parseInt(field.attempt);
-        console.log('attempt: ', attempt);
         if(field.answer !== attempt) {
-          console.log('matt');
           var msg = "Wrong answer, Aaron! Think again!";
+          counter++;
           field.set('reason', msg);
         } else {
           field.set('reason', null);
         }
       });
+
+      this.set('total', counter);
+
+      var percent = counter / questions.length;
+      var percentage;
+      if(percent === 1) {
+        percentage = '0%';
+      } else if (percent === 0) {
+        percentage = '100%';
+      } else {
+        percentage = (percent * '100') + '%';
+      }
+      this.set('percentage', percentage);
     }
   }
 });

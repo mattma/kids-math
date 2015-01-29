@@ -19,9 +19,13 @@ var MathRoute = Ember.Route.extend({
       reason: null
     });
 
-    var data = [
-      question1, question2
-    ];
+    var data = {
+      questions: [
+        question1, question2
+      ],
+      total: 0,
+      percentage: '0%'
+    };
     return data;
   }
 });
