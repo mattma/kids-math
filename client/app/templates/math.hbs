@@ -6,14 +6,9 @@
   </div>
 
   <div class="statistic">
-    <p>
-      {{#if total}}
-        You had {{total}}  wrong answers.
-      {{else}}
-        You got everything right.
-      {{/if}}
-    </p>
-    <p>Percentage: {{percentage}}</p>
+    <p>Correct: <span>{{correct}}</span></p>
+    <p>Wrong: <span>{{wrong}}</span></p>
+    <p>Percentage:  <span>{{percentage}}</span></p>
   </div>
 
 </div>

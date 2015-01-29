@@ -17,7 +17,8 @@ var MathController = Ember.ObjectController.extend({
         }
       });
 
-      this.set('total', counter);
+      this.set('wrong', counter);
+      this.set('correct', questions.length - counter );
 
       var percent = counter / questions.length;
       var percentage;
