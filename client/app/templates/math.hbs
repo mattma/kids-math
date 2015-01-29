@@ -1,14 +1,14 @@
 <div class="header">
   <h2>Addition</h2>
 
-  <div>
-    <button {{action "calculate"}}>Submit</button>
-  </div>
+  <ul>
+    <li><button {{action "calculate"}}>Submit</button></li>
+  </ul>
 
   <div class="statistic">
-    <p>Correct: <span>{{correct}}</span></p>
-    <p>Wrong: <span>{{wrong}}</span></p>
-    <p>Percentage:  <span>{{percentage}}</span></p>
+    <p>Correct: <span {{bind-attr class="good::red"}}>{{correct}}</span></p>
+    <p>Wrong: <span {{bind-attr class="good::red"}}>{{wrong}}</span></p>
+    <p>Percentage:  <span {{bind-attr class="good::red"}}>{{percentage}}</span></p>
   </div>
 
 </div>

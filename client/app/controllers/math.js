@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 var MathController = Ember.ObjectController.extend({
   questions: Ember.computed.alias('model.questions'),
+  wrong: 0,
+
   actions: {
     calculate: function() {
       var counter = 0;
@@ -23,13 +25,17 @@ var MathController = Ember.ObjectController.extend({
       var percent = counter / questions.length;
       var percentage;
       if(percent === 1) {
-        percentage = '0%';
+        percentage = 0;
       } else if (percent === 0) {
-        percentage = '100%';
+        percentage = '100';
       } else {
-        percentage = (100 - percent * 100) + '%';
+        percentage = (100 - percent * 100);
       }
-      this.set('percentage', percentage);
+      this.set('percentage', percentage + '%');
+
+      if(percentage > 80) {
+        this.set('good', true);
+      }
     }
   }
 });
