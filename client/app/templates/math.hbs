@@ -2,22 +2,20 @@
 
 <section class='math'>
   <ul>
-  {{#each question in this}}
-    {{#each field in question}}
-      <li>
-        <span>{{field.field1}}</span>
-        <span class="operater">+</span>
-        <span>{{field.field2}}</span>
-        <span class="operater">=</span>
-        <span>
-          <input type="number" />
-        </span>
-      </li>
-    {{/each}}
+  {{#each field in this.model}}
+    <li {{bind-attr id="field.id"}}>
+      <span>{{field.field1}}</span>
+      <span class="operater">+</span>
+      <span>{{field.field2}}</span>
+      <span class="operater">=</span>
+      <span>
+        {{input type="number" value=attempt}}
+      </span>
+    </li>
   {{/each}}
   </ul>
   <div>
-    <button>Submit</button>
+    <button {{action "calculate"}}>Submit</button>
   </div>
 </section>
 
