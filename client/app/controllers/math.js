@@ -42,6 +42,7 @@ var MathController = Ember.ObjectController.extend(questionBuilder, {
     create: function(){
       var newQuestionsArray = this.buildQuestion();
       this.set('questions', newQuestionsArray);
+      this.set('percentage', false);
     }
   }
 });
