@@ -26,7 +26,7 @@ var MathRoute = Ember.Route.extend({
     var data = {
       questions: questionsArray,
       correct: 0,
-      percentage: '0%'
+      percentage: false
     };
     return data;
   }

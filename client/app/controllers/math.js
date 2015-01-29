@@ -11,7 +11,7 @@ var MathController = Ember.ObjectController.extend({
       questions.forEach((field) => {
         var attempt = parseInt(field.attempt);
         if(field.answer !== attempt) {
-          var msg = "Wrong answer, Aaron! Think again!";
+          var msg = "Aaron, Think again!";
           counter++;
           field.set('reason', msg);
         } else {

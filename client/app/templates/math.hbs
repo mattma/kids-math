@@ -5,12 +5,11 @@
     <li><button {{action "calculate"}}>Submit</button></li>
   </ul>
 
-  <div class="statistic">
-    <p>Correct: <span {{bind-attr class="good::red"}}>{{correct}}</span></p>
-    <p>Wrong: <span {{bind-attr class="good::red"}}>{{wrong}}</span></p>
-    <p>Percentage:  <span {{bind-attr class="good::red"}}>{{percentage}}</span></p>
+  <div {{bind-attr class="percentage::hide :statistic"}}>
+    <p>Correct: <span {{bind-attr class="good:good:bad"}}>{{correct}}</span></p>
+    <p>Wrong: <span {{bind-attr class="good:good:bad"}}>{{wrong}}</span></p>
+    <p>Percentage:  <span {{bind-attr class="good:good:bad"}}>{{percentage}}</span></p>
   </div>
-
 </div>
 
 <section class='math'>
@@ -25,11 +24,9 @@
           {{input type="text" value=field.attempt}}
         </span>
 
-        <div {{bind-attr class="field.reason::hide"}}>
+        <div {{bind-attr class="field.reason::hide :reason"}}>
           {{#if field.reason}}
             {{field.reason}}
-          {{else}}
-            Pass!
           {{/if}}
         </div>
       </li>
