@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import questionBuilder from 'rocks/mixins/question-builder';
 
-var MathController = Ember.ObjectController.extend({
+var MathController = Ember.ObjectController.extend(questionBuilder, {
   questions: Ember.computed.alias('model.questions'),
   wrong: 0,
 
@@ -36,6 +37,11 @@ var MathController = Ember.ObjectController.extend({
       if(percentage > 80) {
         this.set('good', true);
       }
+    },
+
+    create: function(){
+      var newQuestionsArray = this.buildQuestion();
+      this.set('questions', newQuestionsArray);
     }
   }
 });
