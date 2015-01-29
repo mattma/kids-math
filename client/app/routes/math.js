@@ -2,27 +2,29 @@ import Ember from 'ember';
 
 var MathRoute = Ember.Route.extend({
   model: function () {
-    var question1 = Ember.Object.create({
-      id: 0,
-      field1: 1,
-      field2: 2,
-      answer: 3,
-      attempt: null,
-      reason: null
-    });
-    var question2 = Ember.Object.create({
-      id: 1,
-      field1: 1,
-      field2: 3,
-      answer: 4,
-      attempt: null,
-      reason: null
-    });
+    var range = [1,2,3,4,5,6,7,8,9];
+    function getIndex() {
+      return Math.floor(Math.random() * range.length);
+    }
+    var totalQuestions = 20;
+    var questionsArray = [];
+
+    for(var i = 0, l = totalQuestions; i < l; i++) {
+      var field1 = range[getIndex()];
+      var field2 = range[getIndex()];
+      var answer = field1 + field2;
+      var question = Ember.Object.create({
+        field1: field1,
+        field2: field2,
+        answer: answer,
+        attempt: null,
+        reason: null
+      });
+      questionsArray.push(question);
+    }
 
     var data = {
-      questions: [
-        question1, question2
-      ],
+      questions: questionsArray,
       total: 0,
       percentage: '0%'
     };

@@ -26,7 +26,7 @@ var MathController = Ember.ObjectController.extend({
       } else if (percent === 0) {
         percentage = '100%';
       } else {
-        percentage = (percent * '100') + '%';
+        percentage = (100 - percent * 100) + '%';
       }
       this.set('percentage', percentage);
     }
