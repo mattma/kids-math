@@ -1,0 +1,23 @@
+<h2>See the math page</h2>
+
+<section class='math'>
+  <ul>
+  {{#each question in this}}
+    {{#each field in question}}
+      <li>
+        <span>{{field.field1}}</span>
+        <span class="operater">+</span>
+        <span>{{field.field2}}</span>
+        <span class="operater">=</span>
+        <span>
+          <input type="number" />
+        </span>
+      </li>
+    {{/each}}
+  {{/each}}
+  </ul>
+  <div>
+    <button>Submit</button>
+  </div>
+</section>
+

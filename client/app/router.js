@@ -10,8 +10,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function () {
-  this.resource('users', function () {
-    this.route('user', {path: '/:user_id'});
+  this.resource('math', function () {
+
   });
 });
 
