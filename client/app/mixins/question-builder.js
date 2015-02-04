@@ -29,11 +29,14 @@ function checkField (r) {
   var temp1 = Math.floor(Math.random() * r.length);
   var temp2 = Math.floor(Math.random() * r.length);
   if (temp1 > temp2) {
-    console.log('temp1: ', temp1);
-    console.log('temp2: ', temp2);
     return {
       temp1: temp1,
       temp2: temp2
+    }
+  } else {
+    return {
+      temp1: temp2,
+      temp2: temp1
     }
   }
 }
@@ -42,15 +45,14 @@ function getFields (r, method) {
   var ret = {};
   switch (method) {
     case 'addition':
-    case 'subtract':
       ret.field1 = r[getIndex(r)];
       ret.field2 = r[getIndex(r)];
       break;
-    //case 'subtract':
-    //  var temp = checkField(r);
-    //  ret.field1 = temp.temp1;
-    //  ret.field2 = temp.temp2;
-    //  break;
+    case 'subtract':
+      var temp = checkField(r);
+      ret.field1 = temp.temp1;
+      ret.field2 = temp.temp2;
+      break;
   }
   return ret;
 }
@@ -63,7 +65,6 @@ var QuestionBuilderMixin = Ember.Mixin.create({
 
     for (var i = 0, l = totalQuestions; i < l; i++) {
       var fields = getFields(r, method);
-      //console.log('fields: ', fields);
       var field1 = fields.field1;
       var field2 = fields.field2;
       var answer = getAnswer(field1, field2, method);

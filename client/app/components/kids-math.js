@@ -34,7 +34,7 @@ var KidsMathComponent = Ember.Component.extend(questionBuilder, {
       questions.forEach((field) => {
         var attempt = parseInt(field.attempt);
         if (field.answer !== attempt) {
-          var msg = "Aaron, Think again!";
+          var msg = "Wrong answer!";
           counter++;
           field.set('reason', msg);
         } else {
