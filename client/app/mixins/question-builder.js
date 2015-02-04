@@ -1,18 +1,19 @@
 import Ember from 'ember';
+import {range} from 'rocks/utils/range';
 
 var QuestionBuilderMixin = Ember.Mixin.create({
   buildQuestion: function() {
-    console.log('fire me questions');
-    var range = [1,2,3,4,5,6,7,8,9];
+    var r = range(1,20);
+
     function getIndex() {
-      return Math.floor(Math.random() * range.length);
+      return Math.floor(Math.random() * r.length);
     }
     var totalQuestions = 20;
     var questionsArray = [];
 
     for(var i = 0, l = totalQuestions; i < l; i++) {
-      var field1 = range[getIndex()];
-      var field2 = range[getIndex()];
+      var field1 = r[getIndex()];
+      var field2 = r[getIndex()];
       var answer = field1 + field2;
       var question = Ember.Object.create({
         field1: field1,
