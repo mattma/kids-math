@@ -1,18 +1,1 @@
-<div class="header">
-  <h2>Addition</h2>
-
-  <ul>
-    <li><button {{action "create"}}>New</button></li>
-    <li><button {{action "calculate"}}>Submit</button></li>
-  </ul>
-
-  <div {{bind-attr class="percentage::hide :statistic"}}>
-    <p>Correct: <span {{bind-attr class="good:good:bad"}}>{{correct}}</span></p>
-    <p>Wrong: <span {{bind-attr class="good:good:bad"}}>{{wrong}}</span></p>
-    <p>Percentage:  <span {{bind-attr class="good:good:bad"}}>{{percentage}}</span></p>
-  </div>
-</div>
-
-<section class="math">
-  {{kids-math model=this.model}}
-</section>
+{{kids-math model=this.model}}
