@@ -7,7 +7,8 @@ var MathRoute = Ember.Route.extend(questionBuilder, {
     var data = {
       questions: questionsArray,
       correct: 0,
-      percentage: false
+      percentage: false,
+      title: 'Addtion'
     };
     return data;
   }
