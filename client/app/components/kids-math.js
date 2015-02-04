@@ -3,15 +3,25 @@ import questionBuilder from 'rocks/mixins/question-builder';
 
 var KidsMathComponent = Ember.Component.extend(questionBuilder, {
   questions: Ember.computed.alias('model.questions'),
-  wrong: 0,
+  wrong:     0,
+
+  disabled: function () {
+    var percentage = this.get('percentage');
+    console.log('percentage: ', percentage);
+    if (percentage === false) {
+      return true;
+    } else {
+      return false;
+    }
+  }.property('percentage'),
 
   actions: {
-    calculate: function() {
+    calculate: function () {
       var counter = 0;
       var questions = this.get('questions');
       questions.forEach((field) => {
         var attempt = parseInt(field.attempt);
-        if(field.answer !== attempt) {
+        if (field.answer !== attempt) {
           var msg = "Aaron, Think again!";
           counter++;
           field.set('reason', msg);
@@ -21,11 +31,11 @@ var KidsMathComponent = Ember.Component.extend(questionBuilder, {
       });
 
       this.set('wrong', counter);
-      this.set('correct', questions.length - counter );
+      this.set('correct', questions.length - counter);
 
       var percent = counter / questions.length;
       var percentage;
-      if(percent === 1) {
+      if (percent === 1) {
         percentage = 0;
       } else if (percent === 0) {
         percentage = '100';
@@ -34,12 +44,12 @@ var KidsMathComponent = Ember.Component.extend(questionBuilder, {
       }
       this.set('percentage', percentage + '%');
 
-      if(percentage > 80) {
+      if (percentage > 80) {
         this.set('good', true);
       }
     },
 
-    create: function(){
+    create: function () {
       var newQuestionsArray = this.buildQuestion();
       this.set('questions', newQuestionsArray);
       this.set('percentage', false);
