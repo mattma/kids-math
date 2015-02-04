@@ -3,10 +3,10 @@
 
   <ul>
     <li>
-      <button {{bind-attr disabled=disabled}} {{action "create"}}>New</button>
+      <button {{bind-attr disabled=disableNewButton}} {{action "create"}}>New</button>
     </li>
     <li>
-      <button {{action "calculate"}}>Submit</button>
+      <button {{!bind-attr disabled=disabled}} {{action "calculate"}}>Submit</button>
     </li>
   </ul>
 

@@ -5,15 +5,28 @@ var KidsMathComponent = Ember.Component.extend(questionBuilder, {
   questions: Ember.computed.alias('model.questions'),
   wrong:     0,
 
-  disabled: function () {
+  disableNewButton: function () {
     var percentage = this.get('percentage');
-    console.log('percentage: ', percentage);
     if (percentage === false) {
       return true;
     } else {
       return false;
     }
   }.property('percentage'),
+
+  //disableSubmitButton: function () {
+  //  var attempt = this.get('question.attempt');
+  //  console.log('attempt: ', attempt);
+  //  //if (percentage === false) {
+  //  //  return true;
+  //  //} else {
+  //  //  return false;
+  //  //}
+  //}.property('question.attempt'),
+
+  attemptCount: function() {
+    console.log('hello');
+  }.observes('questions.@each.attempt'),
 
   actions: {
     calculate: function () {
