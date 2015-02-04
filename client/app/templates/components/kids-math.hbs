@@ -1,0 +1,19 @@
+<ul>
+  {{#each question in questions}}
+    <li>
+      <span>{{question.field1}}</span>
+      <span class="operator">+</span>
+      <span>{{question.field2}}</span>
+      <span class="operator">=</span>
+      <span>
+        {{input type="text" value=question.attempt}}
+      </span>
+
+      <div {{bind-attr class="question.reason::hide :reason"}}>
+        {{#if question.reason}}
+          {{question.reason}}
+        {{/if}}
+      </div>
+    </li>
+  {{/each}}
+</ul>

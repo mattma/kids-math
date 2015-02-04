@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import questionBuilder from 'rocks/mixins/question-builder';
 
-var MathController = Ember.ObjectController.extend(questionBuilder, {
+var KidsMathComponent = Ember.Component.extend(questionBuilder, {
   questions: Ember.computed.alias('model.questions'),
   wrong: 0,
 
@@ -47,4 +47,4 @@ var MathController = Ember.ObjectController.extend(questionBuilder, {
   }
 });
 
-export default MathController;
+export default KidsMathComponent;

@@ -13,32 +13,6 @@
   </div>
 </div>
 
-<section class='math'>
-  <ul>
-    {{#each field in this.model.questions}}
-      <li>
-        <span>{{field.field1}}</span>
-        <span class="operator">+</span>
-        <span>{{field.field2}}</span>
-        <span class="operator">=</span>
-        <span>
-          {{input type="text" value=field.attempt}}
-        </span>
-
-        <div {{bind-attr class="field.reason::hide :reason"}}>
-          {{#if field.reason}}
-            {{field.reason}}
-          {{/if}}
-        </div>
-      </li>
-    {{/each}}
-  </ul>
+<section class="math">
+  {{kids-math model=this.model}}
 </section>
-
-<!--<section class="results">-->
-  <!--<ul>-->
-    <!--<li>-->
-      <!--<p>take: 1</p>-->
-    <!--</li>-->
-  <!--</ul>-->
-<!--</section>-->
