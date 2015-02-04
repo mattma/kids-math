@@ -10,9 +10,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function () {
-  this.resource('math', function () {
-
-  });
+  this.resource('addition');
 });
 
 export default Router;

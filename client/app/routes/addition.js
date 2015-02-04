@@ -1,17 +1,17 @@
 import Ember from 'ember';
 import questionBuilder from 'rocks/mixins/question-builder';
 
-var MathRoute = Ember.Route.extend(questionBuilder, {
+var AdditionRoute = Ember.Route.extend(questionBuilder, {
   model: function () {
     var questionsArray = this.buildQuestion();
     var data = {
       questions: questionsArray,
       correct: 0,
       percentage: false,
-      title: 'Addtion'
+      title: 'Addition'
     };
     return data;
   }
 });
 
-export default MathRoute;
+export default AdditionRoute;

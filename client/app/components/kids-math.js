@@ -2,7 +2,6 @@ import Ember from 'ember';
 import questionBuilder from 'rocks/mixins/question-builder';
 
 var KidsMathComponent = Ember.Component.extend(questionBuilder, {
-  questions: Ember.computed.alias('model.questions'),
   wrong:     0,
 
   disableNewButton: function () {
@@ -24,9 +23,9 @@ var KidsMathComponent = Ember.Component.extend(questionBuilder, {
   //  //}
   //}.property('question.attempt'),
 
-  attemptCount: function() {
-    console.log('hello');
-  }.observes('questions.@each.attempt'),
+  //attemptCount: function() {
+  //  console.log('hello');
+  //}.observes('questions.@each.attempt'),
 
   actions: {
     calculate: function () {
