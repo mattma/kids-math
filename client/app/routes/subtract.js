@@ -1,18 +1,18 @@
 import Ember from 'ember';
 import questionBuilder from 'rocks/mixins/question-builder';
 
-var AdditionRoute = Ember.Route.extend(questionBuilder, {
+var SubtractRoute = Ember.Route.extend(questionBuilder, {
   model: function () {
-    var questionsArray = this.buildQuestion('addition');
+    var questionsArray = this.buildQuestion('subtract');
     var data = {
       questions: questionsArray,
       correct: 0,
       percentage: false,
-      title: 'Addition',
-      operator: '+'
+      title: 'Subtraction',
+      operator: '-'
     };
     return data;
   }
 });
 
-export default AdditionRoute;
+export default SubtractRoute;

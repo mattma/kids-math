@@ -11,6 +11,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function () {
   this.resource('addition');
+  this.resource('subtract');
 });
 
 export default Router;
